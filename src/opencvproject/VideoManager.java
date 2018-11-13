@@ -67,13 +67,20 @@ public class VideoManager implements IFilter {
         switch (filterType) {
             case FindContoursBW:
                 ContoursFinder contoursFinder = new ContoursFinder();
-                result = contoursFinder.findContours(image, true);
+                result = contoursFinder.findContours(image, false);
                 break;
             case FindContoursColor:
                 ContoursFinder contoursColorFinder = new ContoursFinder();
-                result = contoursColorFinder.findContours(image, false);
+                result = contoursColorFinder.findContours(image, true);
                 break;
-            // Add more cases
+            case FindContoursBWNegative:
+                ContoursFinder contoursFinderNegative = new ContoursFinder();
+                result = contoursFinderNegative.findContoursNegative(image, false);
+                break;
+            case FindContoursColorNegative:
+                ContoursFinder contoursFinderColorNegative = new ContoursFinder();
+                result = contoursFinderColorNegative.findContoursNegative(image, true);
+                break;
             default:
                 break;
         }

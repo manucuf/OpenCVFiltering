@@ -3,7 +3,9 @@ package opencvproject;
 public enum FilterType {
 
     FindContoursBW,
-    FindContoursColor
+    FindContoursColor,
+    FindContoursBWNegative,
+    FindContoursColorNegative
 
     // Add other filters
 }

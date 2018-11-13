@@ -29,7 +29,7 @@ public class ContoursFinder {
         Imgproc.findContours(cannyOutput, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE); // Crea una lista di punti di contorno e la salva in contours
         Mat drawing = Mat.zeros(cannyOutput.size(), CvType.CV_8UC3); // Crea una matrice delle stesse dimensioni di cannyOutput
 
-        if (colored) return cannyOutput;
+        if (!colored) return cannyOutput;
 
         for (int i = 0; i < contours.size(); i++) {
             Scalar color = new Scalar(rng.nextInt(256), rng.nextInt(256), rng.nextInt(256)); // Crea un colore casuale
@@ -37,6 +37,16 @@ public class ContoursFinder {
         }
 
         return drawing;
+    }
+
+    public Mat findContoursNegative(Mat src, boolean colored) {
+
+        Mat result = new Mat();
+        Mat contours = findContours(src, colored);
+        Core.bitwise_not(contours, result);
+
+        return result;
+
     }
 
 

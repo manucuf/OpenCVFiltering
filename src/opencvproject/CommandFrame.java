@@ -29,6 +29,8 @@ public class CommandFrame extends JFrame {
         filterSelection.setEnabled(true);
         filterSelection.addItem("Find Contours BW");
         filterSelection.addItem("Find Contours Colored");
+        filterSelection.addItem("Find Contours BW Negative");
+        filterSelection.addItem("Find Contours Colored Negative");
 
         add(filterSelection);
 
@@ -98,7 +100,12 @@ public class CommandFrame extends JFrame {
                 case "Find Contours Colored":
                     delegate.onSnapshot(FilterType.FindContoursColor);
                     break;
-                // Add other filters
+                case "Find Contours BW Negative":
+                    delegate.onSnapshot(FilterType.FindContoursBWNegative);
+                    break;
+                case "Find Contours Colored Negative":
+                    delegate.onSnapshot(FilterType.FindContoursColorNegative);
+                    break;
                 default:
                     break;
             }
