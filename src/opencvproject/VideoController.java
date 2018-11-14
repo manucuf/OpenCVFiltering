@@ -7,7 +7,7 @@ import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 
-public class VideoManager implements IFilter {
+public class VideoController implements IFilter {
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -21,12 +21,12 @@ public class VideoManager implements IFilter {
 
     public String fileName = "";
 
-    public VideoManager(){
+    VideoController(){
         this.capture = new VideoCapture(0);
         //capture.open(0);
     }
 
-    public BufferedImage getOneFrame() {
+    BufferedImage getOneFrame() {
         if (isFilming) {
             capture.read(image);
             return convertMatToImage(image);

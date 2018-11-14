@@ -11,7 +11,7 @@ public class CameraFrame extends JFrame {
 
     private JPanel contentPane;
 
-    private VideoManager video = new VideoManager();
+    private VideoController video = new VideoController();
 
 
     public CameraFrame() {
