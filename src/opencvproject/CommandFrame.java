@@ -95,16 +95,16 @@ public class CommandFrame extends JFrame {
 
             switch (filterSelection.getSelectedItem().toString()) {
                 case "Find Contours BW":
-                    delegate.onSnapshot(FilterType.FindContoursBW);
+                    delegate.onFilterApplied(FilterType.FindContoursBW);
                     break;
                 case "Find Contours Colored":
-                    delegate.onSnapshot(FilterType.FindContoursColor);
+                    delegate.onFilterApplied(FilterType.FindContoursColor);
                     break;
                 case "Find Contours BW Negative":
-                    delegate.onSnapshot(FilterType.FindContoursBWNegative);
+                    delegate.onFilterApplied(FilterType.FindContoursBWNegative);
                     break;
                 case "Find Contours Colored Negative":
-                    delegate.onSnapshot(FilterType.FindContoursColorNegative);
+                    delegate.onFilterApplied(FilterType.FindContoursColorNegative);
                     break;
                 default:
                     break;

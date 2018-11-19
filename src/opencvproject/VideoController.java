@@ -18,6 +18,7 @@ public class VideoController implements IFilter {
     private Mat result = new Mat();
 
     private boolean isFilming = true;
+    private FilterType filterType;
 
     public String fileName = "";
 
@@ -31,7 +32,12 @@ public class VideoController implements IFilter {
             capture.read(image);
             return convertMatToImage(image);
         } else {
-            return convertMatToImage(result);
+            // Inizio filtro realTime
+            capture.read(image);
+            image = filter(filterType);
+            return convertMatToImage(image);
+            // Fine filtro realTime
+            //return convertMatToImage(result);
         }
     }
 
@@ -60,9 +66,17 @@ public class VideoController implements IFilter {
 
 
     @Override
-    public void onSnapshot(FilterType filterType) {
+    public void onFilterApplied(FilterType filter) {
 
         this.isFilming = false;
+
+        this.filterType = filter;
+
+        filter(filterType);
+
+    }
+
+    private Mat filter(FilterType filterType) {
 
         switch (filterType) {
             case FindContoursBW:
@@ -82,9 +96,9 @@ public class VideoController implements IFilter {
                 result = contoursFinderColorNegative.findContoursNegative(image, true);
                 break;
             default:
-                break;
+                return result;
         }
-
+        return result;
     }
 
     @Override

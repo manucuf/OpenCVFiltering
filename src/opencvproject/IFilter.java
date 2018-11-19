@@ -2,7 +2,7 @@ package opencvproject;
 
 public interface IFilter {
 
-    void onSnapshot(FilterType filter);
+    void onFilterApplied(FilterType filter);
     boolean onSaving();
     void onDiscarding();
 

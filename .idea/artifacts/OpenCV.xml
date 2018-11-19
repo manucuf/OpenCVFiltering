@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="OpenCV">
+    <output-path>$PROJECT_DIR$/out/artifacts/OpenCV</output-path>
+    <root id="archive" name="OpenCV.jar">
+      <element id="module-output" name="OpenCV" />
+      <element id="extracted-dir" path="/usr/local/Cellar/opencv/3.4.3/share/OpenCV/java/opencv-343.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

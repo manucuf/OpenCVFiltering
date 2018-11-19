@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: opencv-343.jar/usr/local/Cellar/opencv/3.4.3/share/OpenCV/
+ java/opencv-3.4.3-jar
+Main-Class: opencvproject.FilterApp
+
